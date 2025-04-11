@@ -169,7 +169,7 @@ def main():
     icon_path = os.path.join(os.getcwd(),"ICON.png")
     st.set_page_config(
         page_title="Gallbladder Disease Diagnosis",
-        page_icon=icon_path if icon_path.exists() else None,
+        page_icon=icon_path if os.path.exists(icon_path) else None,
         layout="centered"
     )
     st.markdown("""
@@ -350,7 +350,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Display the logo at the top
-    if icon_path.exists():
+    if os.path.exists(icon_path):
         st.markdown(
             f"""
             <div class="app-logo">
