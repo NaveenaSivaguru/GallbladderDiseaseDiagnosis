@@ -351,15 +351,17 @@ def main():
     
     # Display the logo at the top
     if os.path.exists(icon_path):
+        with open(icon_path, "rb") as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode()
+
         st.markdown(
             f"""
             <div class="app-logo">
-                <img src="data:image/png;base64,{base64.b64encode(icon_path.read_bytes()).decode()}">
+                <img src="data:image/png;base64,{encoded_image}">
             </div>
             """,
             unsafe_allow_html=True
         )
-
     # App Header
     st.markdown("""
     <style>
